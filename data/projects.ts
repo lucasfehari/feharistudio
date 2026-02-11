@@ -14,7 +14,7 @@ export const projects: Project[] = [
         client: "Dr. Willian Ortega",
         category: "Desenvolvimento de Site",
         size: "col-span-1 md:col-span-2 row-span-2",
-        image: "/public/portfolio/dr-willian-ortega.png",
+        image: "/portfolio/dr-willian-ortega.png",
         desc: "Desenvolvimento de site para o Dr. Willian Ortega.",
         link: "https://www.behance.net/gallery/242240123/Instituto-Willian-Ortega-Luxury-Aesthetics-UI"
     },
@@ -23,7 +23,7 @@ export const projects: Project[] = [
         client: "Goias Bank",
         category: "Posts Social Media",
         size: "col-span-1 md:col-span-1 row-span-1",
-        image: "/public/portfolio/goiasbank.png",
+        image: "/portfolio/goiasbank.png",
         desc: "Posts para redes sociais."
     },
     {
@@ -31,7 +31,7 @@ export const projects: Project[] = [
         client: "Codental",
         category: "Posts Social Media",
         size: "col-span-1 md:col-span-1 row-span-1",
-        image: "/public/portfolio/codental.png",
+        image: "/portfolio/codental.png",
         desc: "Posts para redes sociais."
     },
     {
@@ -39,7 +39,7 @@ export const projects: Project[] = [
         client: "Filazilla app",
         category: "Desenvolvimento de App",
         size: "col-span-1 md:col-span-2 row-span-1",
-        image: "/public/portfolio/filazilla.png",
+        image: "/portfolio/filazilla.png",
         desc: "Desenvolvimento de app para agendamento de serviços.",
         link: "https://filazilla.app/"
     },
@@ -56,7 +56,7 @@ export const projects: Project[] = [
         client: "G2 Company",
         category: "Identidade Visual",
         size: "col-span-1 md:col-span-2 row-span-1",
-        image: "/public/portfolio/g2.png",
+        image: "/portfolio/g2.png",
         desc: "Desenvolvimento de identidade visual para a G2 Company.",
         link: "https://www.behance.net/gallery/243825351/Identidade-Visual-G2-Company"
     },
@@ -65,7 +65,7 @@ export const projects: Project[] = [
         client: "Toyota Ramires",
         category: "Posts Social Media",
         size: "col-span-1 md:col-span-2 row-span-1",
-        image: "/public/portfolio/toyota.png",
+        image: "/portfolio/toyota.png",
         desc: "Desenvolvimento de posts para redes sociais para a Toyota Ramires."
     },
     // Add more projects here following the pattern
