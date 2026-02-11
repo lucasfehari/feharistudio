@@ -93,10 +93,9 @@ const SubscriptionPlans = () => (
       period="/mês"
       description="Para manter suas redes sociais ativas com qualidade profissional."
       features={[
-        "Até 8 Artes Mensais (Posts/Stories)",
+        "Até 14 Artes Mensais (Posts/Stories)",
         "Adaptação de Formatos",
         "Design de Banners Simples",
-        "Legendas Geradas por IA",
         "Entrega em até 48h",
         "Direito de Uso Comercial"
       ]}
@@ -108,8 +107,8 @@ const SubscriptionPlans = () => (
       description="Volume ideal para pequenas empresas e experts que postam toda semana."
       isPopular
       features={[
-        "Até 20 Artes Mensais",
-        "Incluso: 4 Edições de Reels/Shorts",
+        "Até 24 Artes Mensais",
+        "Incluso: 3 Edições de Reels/Shorts",
         "Criação de Carrosséis (até 7 slides)",
         "Apresentações Simples (PDF)",
         "Prioridade na Fila de Produção",
@@ -122,11 +121,11 @@ const SubscriptionPlans = () => (
       period="/mês"
       description="Seu departamento de design completo. Fluxo intenso sem gargalos."
       features={[
-        "Volume Ilimitado (Fluxo Contínuo)",
-        "Design, Landing Pages & Motion",
+        "Até 80 Artes Mensais",
+        "Design, Landing Pages Simples & edição de vídeos",
         "Edição de Vídeo Avançada",
         "Slack Connect com a Equipe",
-        "Arquivos Abertos (Figma/After)",
+        "Arquivos Abertos (PS/Figma)",
         "Reunião de Direção Mensal"
       ]}
     />
