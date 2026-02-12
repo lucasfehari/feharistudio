@@ -37,7 +37,7 @@ const PortfolioSection: React.FC = () => {
           {displayProjects.map((project) => (
             <motion.div
               key={project.id}
-              className={`relative group overflow-hidden rounded-xl border border-white/10 bg-zinc-900 ${project.size}`}
+              className={`relative group overflow-hidden rounded-xl border border-white/10 bg-zinc-900 ${project.size} min-h-[300px] md:min-h-0`}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}

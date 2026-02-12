@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
+import { motion, useScroll, useMotionValueEvent, AnimatePresence } from 'framer-motion';
 import Button from './ui/Button';
 import { ArrowRight, ChevronDown, Menu } from 'lucide-react';
 
@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { scrollY } = useScroll();
 
   useMotionValueEvent(scrollY, "change", (latest) => {
@@ -65,14 +66,87 @@ const Navbar: React.FC = () => {
           </div>
 
           {/* Mobile Menu Toggle (Visible only on mobile) */}
+          {/* Mobile Menu Toggle (Visible only on mobile) */}
           <div className="md:hidden flex flex-1 justify-end">
-            <button className="p-2 text-text hover:bg-background-secondary rounded-md">
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="p-2 text-text hover:bg-background-secondary rounded-md z-50 relative"
+            >
               <Menu className="w-6 h-6" />
             </button>
           </div>
 
         </div>
       </div>
+
+      {/* Mobile Full Screen Menu */}
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="fixed inset-0 bg-background z-40 flex flex-col pt-24 px-6 md:hidden"
+          >
+            <div className="flex flex-col gap-6 text-center">
+              <Link
+                to="/"
+                onClick={() => setIsMenuOpen(false)}
+                className="text-2xl font-medium text-text hover:text-accent transition-colors"
+              >
+                Home
+              </Link>
+              <a
+                href="#solucoes"
+                onClick={() => setIsMenuOpen(false)}
+                className="text-2xl font-medium text-text hover:text-accent transition-colors"
+              >
+                Soluções
+              </a>
+              <a
+                href="#processo"
+                onClick={() => setIsMenuOpen(false)}
+                className="text-2xl font-medium text-text hover:text-accent transition-colors"
+              >
+                Processo
+              </a>
+              <Link
+                to="/portfolio"
+                onClick={() => setIsMenuOpen(false)}
+                className="text-2xl font-medium text-text hover:text-accent transition-colors"
+              >
+                Portfolio
+              </Link>
+              <a
+                href="#planos"
+                onClick={() => setIsMenuOpen(false)}
+                className="text-2xl font-medium text-text hover:text-accent transition-colors"
+              >
+                Planos
+              </a>
+              <a
+                href="#"
+                onClick={() => setIsMenuOpen(false)}
+                className="text-2xl font-medium text-text-secondary hover:text-text transition-colors"
+              >
+                Login
+              </a>
+              <a
+                href="https://wa.me/5564999602571"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setIsMenuOpen(false)}
+                className="mt-4"
+              >
+                <Button variant="primary" size="lg" className="w-full justify-center">
+                  Comece Agora
+                  <ArrowRight className="ml-2 w-4 h-4" />
+                </Button>
+              </a>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.nav>
   );
 };
