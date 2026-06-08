@@ -1,15 +1,16 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Button from './ui/Button';
-import { Hexagon, Box, Layers, Command, Activity, Triangle, Zap } from 'lucide-react';
+import { Zap } from 'lucide-react';
+import { SiOpenai, SiShopify, SiStripe, SiLinear, SiClickup, SiVercel } from 'react-icons/si';
 
 const logos = [
-  { name: "OpenAI", icon: Hexagon },
-  { name: "Shopify", icon: Box },
-  { name: "Stripe", icon: Layers },
-  { name: "Linear", icon: Command },
-  { name: "ClickUp", icon: Activity },
-  { name: "Wiz", icon: Triangle },
+  { name: "OpenAI", icon: SiOpenai },
+  { name: "Shopify", icon: SiShopify },
+  { name: "Stripe", icon: SiStripe },
+  { name: "Linear", icon: SiLinear },
+  { name: "ClickUp", icon: SiClickup },
+  { name: "Vercel", icon: SiVercel },
 ];
 
 const StickyPartnerBar: React.FC = () => {

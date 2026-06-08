@@ -1,9 +1,16 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { SiVercel, SiStripe, SiRaycast, SiLinear, SiShopify, SiAirbnb, SiLoom, SiAmazon } from 'react-icons/si';
 
-// Using Placeholder logos from simple icons or basic shapes representation
 const logos = [
-  "Acme Corp", "Vercel", "Stripe", "Raycast", "Linear", "Shopify", "Airbnb", "Loom"
+  { name: "Amazon", icon: SiAmazon },
+  { name: "Vercel", icon: SiVercel },
+  { name: "Stripe", icon: SiStripe },
+  { name: "Raycast", icon: SiRaycast },
+  { name: "Linear", icon: SiLinear },
+  { name: "Shopify", icon: SiShopify },
+  { name: "Airbnb", icon: SiAirbnb },
+  { name: "Loom", icon: SiLoom }
 ];
 
 const SocialProofSection: React.FC = () => {
@@ -34,10 +41,11 @@ const SocialProofSection: React.FC = () => {
             {[...logos, ...logos, ...logos, ...logos].map((logo, index) => (
               <div 
                 key={index} 
-                className="group cursor-default"
+                className="group cursor-default flex items-center gap-3 text-gray-400 transition-colors duration-300 hover:text-text"
               >
-                <span className="font-display font-bold text-2xl text-gray-300 transition-colors duration-300 group-hover:text-text">
-                  {logo}
+                <logo.icon className="w-8 h-8" />
+                <span className="font-display font-bold text-2xl">
+                  {logo.name}
                 </span>
               </div>
             ))}

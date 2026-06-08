@@ -1,32 +1,33 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Button from './ui/Button';
-import { Quote, ArrowRight, Activity, Command, Box, Hexagon } from 'lucide-react';
+import { Quote, ArrowRight } from 'lucide-react';
+import { SiReact, SiLinear, SiVercel, SiRaycast } from 'react-icons/si';
 
 const testimonials = [
   {
     quote: "Otimizamos nossa infraestrutura de marca ao limite. A virada de chave veio com o Creative Core da Fehari. Da noite para o dia, nossa velocidade de lançamento triplicou enquanto os custos caíram 40%.",
     author: "Nicolas Bustamante",
     role: "CEO, FINTOOL",
-    companyLogo: Activity
+    companyLogo: SiReact // Simulando logo
   },
   {
     quote: "A Fehari criou uma economia imensa e reduziu drasticamente nosso overhead de gestão. Conseguimos manter nossos preços competitivos porque não carregamos o custo de um time interno ocioso.",
     author: "Abhigyan Arya",
     role: "CTO, OPENNOTE",
-    companyLogo: Command
+    companyLogo: SiLinear
   },
   {
     quote: "Se tivéssemos que contratar, treinar e gerir, perderíamos a janela de mercado. A Fehari entregou a nova identidade visual e o site em duas semanas. Simplesmente não conseguimos viver sem.",
     author: "Kevin Scott",
     role: "VP DE PRODUTO, WIZ",
-    companyLogo: Box
+    companyLogo: SiVercel // Simulando logo da Wiz com Vercel
   },
   {
     quote: "A consistência visual entre nossas apresentações de investidores e nosso produto final nunca foi tão alta. É como ter um Diretor de Arte Sênior disponível 24/7 no Slack.",
     author: "Sarah Jenkings",
     role: "FOUNDER, RAYCAST",
-    companyLogo: Hexagon
+    companyLogo: SiRaycast
   }
 ];
 
@@ -44,22 +45,11 @@ const TestimonialsSection: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="font-display font-light text-4xl md:text-6xl text-text mb-8 tracking-tight"
+            className="font-display font-light text-4xl md:text-6xl text-text tracking-tight"
           >
             Prova de quem está <br className="hidden md:block" />
             <span className="font-medium">escalando agora.</span>
           </motion.h2>
-          
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-          >
-            <Button className="bg-accent hover:bg-accent-secondary text-white rounded-full px-8">
-              Ler Histórias de Sucesso
-            </Button>
-          </motion.div>
         </div>
 
         {/* Infinite Marquee Container */}

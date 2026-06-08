@@ -15,7 +15,7 @@ import PortfolioSection from './PortfolioSection';
 import FAQSection from './FAQSection';
 import ComparisonSection from './ComparisonSection';
 import TechStackSection from './TechStackSection';
-import PlatformPreviewSection from './PlatformPreviewSection';
+import PostsCarouselSection from './PostsCarouselSection';
 import SEO from './SEO';
 
 const LandingPage: React.FC = () => {
@@ -26,8 +26,6 @@ const LandingPage: React.FC = () => {
             {/* New Section Inspired by Groq */}
             <DifferenceSection />
 
-            {/* NEW: Platform Preview - Visualizing the "Product" */}
-            <PlatformPreviewSection />
 
             <VideoShowcaseSection />
             {/* Statistical Comparison Section */}
@@ -35,6 +33,9 @@ const LandingPage: React.FC = () => {
 
             {/* NEW: Portfolio Bento Grid */}
             <PortfolioSection />
+
+            {/* Posts Carousel Section (3D Coverflow) */}
+            <PostsCarouselSection />
 
             {/* NEW: Tech Stack (Our OS) */}
             <TechStackSection />

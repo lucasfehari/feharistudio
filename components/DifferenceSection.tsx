@@ -1,15 +1,16 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Button from './ui/Button';
-import { Zap, ArrowRight, Hexagon, Box, Layers, Command, Activity, Triangle } from 'lucide-react';
+import { Zap, ArrowRight } from 'lucide-react';
+import { SiOpenai, SiShopify, SiStripe, SiLinear, SiClickup, SiVercel } from 'react-icons/si';
 
 const logos = [
-  { name: "OpenAI", icon: Hexagon },
-  { name: "Shopify", icon: Box },
-  { name: "Stripe", icon: Layers },
-  { name: "Linear", icon: Command },
-  { name: "ClickUp", icon: Activity },
-  { name: "Wiz", icon: Triangle },
+  { name: "OpenAI", icon: SiOpenai },
+  { name: "Shopify", icon: SiShopify },
+  { name: "Stripe", icon: SiStripe },
+  { name: "Linear", icon: SiLinear },
+  { name: "ClickUp", icon: SiClickup },
+  { name: "Vercel", icon: SiVercel },
 ];
 
 const DifferenceSection: React.FC = () => {
@@ -41,28 +42,16 @@ const DifferenceSection: React.FC = () => {
           </div>
 
           {/* Right Side: Description & CTA */}
-          <div className="flex flex-col justify-end items-start lg:pl-20">
+          <div className="flex flex-col justify-center items-start lg:pl-20">
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="text-gray-400 text-lg leading-relaxed mb-8 max-w-lg"
+              className="text-gray-400 text-lg leading-relaxed max-w-lg"
             >
-              A Fehari centraliza direção de arte, UI/UX e desenvolvimento em um único fluxo (o "Creative Core"). Cada entrega é focada em manter sua marca consistente, rápida e financeiramente eficiente.
+              A Fehari centraliza direção de arte, UI/UX e desenvolvimento em um único fluxo criativo. Cada entrega é focada em manter sua marca consistente e rápida, sem o overhead de gerenciar vários contratos diferentes.
             </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.3 }}
-            >
-              <Button className="bg-accent text-white border-none hover:bg-accent-secondary rounded-full px-8">
-                Entenda o Modelo
-                <ArrowRight className="ml-2 w-4 h-4" />
-              </Button>
-            </motion.div>
           </div>
         </div>
 

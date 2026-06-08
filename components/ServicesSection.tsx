@@ -71,20 +71,10 @@ const ServicesSection: React.FC = () => {
                 <h3 className="font-display font-bold text-2xl text-text mb-4">
                   {service.title}
                 </h3>
-                <p className="text-text-secondary leading-relaxed mb-8">
+                <p className="text-text-secondary leading-relaxed">
                   {service.description}
                 </p>
               </div>
-
-              <a href="https://wa.me/5564999602571" target="_blank" rel="noopener noreferrer" className="w-full">
-                <Button
-                  variant={service.primary ? 'primary' : 'secondary'}
-                  className="w-full justify-between group-hover:border-text-secondary"
-                >
-                  {service.buttonText}
-                  <ArrowUpRight className="w-4 h-4" />
-                </Button>
-              </a>
             </motion.div>
           ))}
         </motion.div>
