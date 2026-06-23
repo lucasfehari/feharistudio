@@ -9,6 +9,14 @@ export default defineConfig(({ mode }) => {
       port: 3000,
       host: '0.0.0.0',
     },
+    build: {
+      rollupOptions: {
+        input: {
+          main: path.resolve(__dirname, 'index.html'),
+          herohospedagem: path.resolve(__dirname, 'herohospedagem.html'),
+        }
+      }
+    },
     plugins: [react()],
     resolve: {
       alias: {
