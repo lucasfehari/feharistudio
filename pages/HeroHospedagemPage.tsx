@@ -23,7 +23,7 @@ const HeroHospedagemPage: React.FC = () => {
         <meta name="description" content="Hospedagem de alta performance para sites exigentes. Planos mensais e anuais." />
         <meta property="og:title" content="Hero Hospedagem | Alta Performance" />
         <meta property="og:description" content="Hospedagem de alta performance para sites exigentes. Planos mensais e anuais." />
-        <meta property="og:image" content="https://feharistudio.com/logohero.png" />
+        <meta property="og:image" content="https://www.feharistudio.com.br/logohero.png" />
       </Helmet>
       
       {/* Background Decor */}
