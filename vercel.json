@@ -5,7 +5,15 @@
       "destination": "/herohospedagem.html"
     },
     {
-      "source": "/(.*)",
+      "source": "/portfolio",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/termos-hero",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/sucesso",
       "destination": "/index.html"
     }
   ]

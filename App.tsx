@@ -4,6 +4,7 @@ import LandingPage from './components/LandingPage';
 import PortfolioPage from './pages/PortfolioPage';
 import HeroHospedagemPage from './pages/HeroHospedagemPage';
 import TermosHeroHospedagemPage from './pages/TermosHeroHospedagemPage';
+import SucessoPage from './pages/SucessoPage';
 import StickyPartnerBar from './components/StickyPartnerBar';
 import Navbar from './components/Navbar';
 import { Outlet } from 'react-router-dom';
@@ -30,6 +31,7 @@ const App: React.FC = () => {
         </Route>
         <Route path="/herohospedagem" element={<HeroHospedagemPage />} />
         <Route path="/termos-hero" element={<TermosHeroHospedagemPage />} />
+        <Route path="/sucesso" element={<SucessoPage />} />
       </Routes>
     </Router>
   );
