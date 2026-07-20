@@ -15,6 +15,14 @@
     {
       "source": "/sucesso",
       "destination": "/index.html"
+    },
+    {
+      "source": "/lucasfehari",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ]
 }
