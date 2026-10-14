@@ -1,142 +1,65 @@
-import React, { useRef, useEffect } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
+import { ArrowUpRight, BarChart3, Crosshair, MousePointerClick, Shapes } from 'lucide-react';
 import Button from './ui/Button';
-import { TrendingUp } from 'lucide-react';
 
-const MarketingFeatureSection: React.FC = () => {
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-
-    let reverseInterval: ReturnType<typeof setInterval>;
-
-    const handleEnded = () => {
-      // Pausa ao chegar no fim
-      video.pause();
-      
-      // Retrocede o vídeo manualmente (efeito boomerang)
-      reverseInterval = setInterval(() => {
-        if (video.currentTime <= 0.05) {
-          clearInterval(reverseInterval);
-          video.currentTime = 0;
-          video.play().catch(() => {}); // Inicia para frente novamente
-        } else {
-          video.currentTime -= 0.04; // Reduz o tempo atual do vídeo
-        }
-      }, 40); // 25 fps
-    };
-
-    video.addEventListener('ended', handleEnded);
-
-    return () => {
-      video.removeEventListener('ended', handleEnded);
-      if (reverseInterval) clearInterval(reverseInterval);
-    };
-  }, []);
-
-  return (
-    <section className="py-12 bg-background border-t border-border">
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
-
+const MarketingFeatureSection: React.FC = () => (
+  <section id="empresa-marketing" className="relative scroll-mt-24 overflow-hidden border-y border-white/[0.08] bg-[#080808] py-28 text-white md:py-36">
+    <div className="absolute left-1/2 top-0 h-[600px] w-[800px] -translate-x-1/2 rounded-full bg-accent/[0.07] blur-[140px]" />
+    <div className="relative mx-auto max-w-[1380px] px-6 md:px-10">
+      <div className="grid gap-12 lg:grid-cols-[.95fr_1.05fr] lg:items-start">
         <motion.div
-          initial={{ opacity: 0, scale: 0.98 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="relative w-full h-[80vh] min-h-[600px] rounded-2xl overflow-hidden shadow-2xl group"
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-80px' }}
+          className="lg:sticky lg:top-32"
         >
-          {/* Background Video with Boomerang effect */}
-          <div className="absolute inset-0 transition-transform duration-1000 group-hover:scale-105">
-            <video
-              ref={videoRef}
-              src="/videomarketing.mp4"
-              autoPlay
-              muted
-              playsInline
-              className="w-full h-full object-cover"
-            />
-          </div>
-
-          {/* Dark Overlay Gradient - Essential for text readability */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-black/30" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent" />
-
-          {/* Content Container */}
-          <div className="relative z-10 h-full flex flex-col justify-between p-8 md:p-16">
-
-            {/* Top Content */}
-            <div className="max-w-3xl">
-              <motion.span
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.2 }}
-                className="inline-block font-mono text-xs font-bold text-accent tracking-[0.2em] uppercase mb-6"
-              >
-                Growth & Performance
-              </motion.span>
-
-              <motion.h2
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.3 }}
-                className="font-display font-medium text-4xl md:text-6xl text-white leading-[1.1] mb-8"
-              >
-                Estratégia digital focada. <br />
-                A Fehari faz sua empresa <br />
-                <span className="text-gray-400">escalar com inteligência.</span>
-              </motion.h2>
-            </div>
-
-            {/* Bottom Content Row */}
-            <div className="flex flex-col md:flex-row items-end md:items-end justify-between gap-8 mt-12 md:mt-0">
-
-              {/* Description (Bottom Left) */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.5 }}
-                className="max-w-md"
-              >
-                <p className="text-gray-300 text-sm md:text-base leading-relaxed">
-                  Não é só sobre likes. Captamos leads qualificados (Tráfego Pago), melhoramos seu posicionamento (SEO) e criamos funis que colocam dinheiro no caixa.
-                </p>
-              </motion.div>
-
-              {/* Logos (Bottom Right) */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.6 }}
-                className="flex items-center gap-6"
-              >
-                <div className="flex flex-col items-end">
-                  <div className="flex items-center gap-3 mb-1">
-                    <img src="/logo-fehari-black.svg" alt="Fehari" className="h-6 w-auto invert brightness-0" />
-                    <div className="h-6 w-px bg-gray-600 mx-2"></div>
-                    <div className="flex items-center gap-1 text-white">
-                      <TrendingUp className="w-5 h-5 text-accent" />
-                      <span className="font-display font-bold text-xl tracking-tight">MARKETING</span>
-                    </div>
-                  </div>
-                  <span className="font-mono text-[10px] text-gray-500 uppercase tracking-widest">
-                    Digital Business Unit
-                  </span>
-                </div>
-              </motion.div>
-
-            </div>
-          </div>
-
+          <p className="eyebrow">Marketing e captação para empresas B2B e B2C</p>
+          <h2 className="section-title max-w-2xl">Mais que aparecer.<br /><span>Atrair a pessoa certa.</span></h2>
+          <p className="mt-7 max-w-lg text-base leading-relaxed text-white/48">
+            A Fehari cuida da estratégia e da execução: captação, tráfego pago, conteúdo, criativos, landing pages e implementação para transformar atenção em oportunidade comercial.
+          </p>
+          <Button
+            href="https://wa.me/5564999602571?text=Oi%2C%20quero%20organizar%20o%20marketing%20da%20minha%20empresa."
+            target="_blank"
+            rel="noopener noreferrer"
+            variant="secondary"
+            className="mt-9 gap-3"
+          >
+            Organizar meu marketing <ArrowUpRight className="h-4 w-4" />
+          </Button>
         </motion.div>
+
+        <div className="space-y-4">
+          {[
+            { step: '01', icon: Crosshair, title: 'Clareza de posicionamento', copy: 'Organizamos mensagem, público e prioridade para sua comunicação parar de tentar dizer tudo ao mesmo tempo.', accent: 'Identidade + direção' },
+            { step: '02', icon: Shapes, title: 'Conteúdo que parece sua marca', copy: 'Criamos um sistema visual para campanhas, redes e apresentações conversarem entre si.', accent: 'Design + conteúdo' },
+            { step: '03', icon: MousePointerClick, title: 'Caminhos para converter', copy: 'Unimos mídia, criativos e páginas com uma ideia simples: facilitar o próximo passo.', accent: 'Tráfego + páginas' },
+            { step: '04', icon: BarChart3, title: 'Aprendizado que vira ação', copy: 'Acompanhamos o que funciona e alimentamos os próximos ciclos de criação e implementação.', accent: 'Otimização + escala' },
+          ].map((item, index) => (
+            <motion.article
+              key={item.title}
+              initial={{ opacity: 0, y: 28 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-70px' }}
+              transition={{ delay: index * 0.05 }}
+              className="group grid min-h-[230px] gap-8 overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/[0.025] p-6 transition-colors hover:border-accent/25 hover:bg-white/[0.04] md:grid-cols-[80px_1fr_auto] md:p-8"
+            >
+              <div className="grid h-14 w-14 place-items-center rounded-2xl border border-white/10 bg-black/30 text-white/45 group-hover:text-accent">
+                <item.icon className="h-6 w-6" />
+              </div>
+              <div>
+                <span className="font-mono text-[10px] text-accent">PASSO {item.step}</span>
+                <h3 className="mt-5 font-display text-2xl font-medium tracking-[-0.035em] md:text-3xl">{item.title}</h3>
+                <p className="mt-4 max-w-lg text-sm leading-relaxed text-white/43">{item.copy}</p>
+              </div>
+              <span className="h-fit rounded-full border border-white/10 px-3 py-1.5 text-[9px] uppercase tracking-[0.13em] text-white/36">{item.accent}</span>
+            </motion.article>
+          ))}
+        </div>
       </div>
-    </section>
-  );
-};
+    </div>
+  </section>
+);
 
 export default MarketingFeatureSection;

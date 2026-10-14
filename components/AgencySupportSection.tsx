@@ -1,167 +1,124 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { ArrowRight, Check, CircleDot, Layers2, ShieldCheck, Users2 } from 'lucide-react';
 import Button from './ui/Button';
-import { Layers, Image as ImageIcon, Video, CheckCircle2, ArrowRight } from 'lucide-react';
 
-const assets = [
-  { type: 'Carousel', ratio: 'aspect-[4/5]', bg: 'bg-zinc-100', icon: Layers, label: 'Carrosséis Educativos' },
-  { type: 'Reel Cover', ratio: 'aspect-[9/16]', bg: 'bg-zinc-900', icon: Video, label: 'Capas & Edição Reels', dark: true },
-  { type: 'Ad Creative', ratio: 'aspect-square', bg: 'bg-accent/10', icon: ImageIcon, label: 'Ads de Alta Conversão' },
+const output = [
+  { label: 'Campanha Black Friday', status: 'Pronto para aprovar', progress: 100 },
+  { label: 'Criativos Cliente A', status: 'Em produção', progress: 68 },
+  { label: 'Landing Page Cliente B', status: 'Direção aprovada', progress: 42 },
 ];
 
-const features = [
-  "White-label total (entregamos como se fosse você)",
-  "Arquivos editáveis (Figma/Adobe) inclusos",
-  "Volume escalável para atender múltiplos clientes",
-  "Revisões ilimitadas até aprovação do seu cliente"
-];
+const AgencySupportSection: React.FC = () => (
+    <section id="agencia-operacao" className="relative scroll-mt-24 overflow-hidden bg-[#f1f0ec] py-28 text-[#111] md:py-36">
+    <div className="absolute inset-x-0 top-0 h-px bg-black/10" />
+    <div className="mx-auto max-w-[1380px] px-6 md:px-10">
+      <div className="grid gap-16 lg:grid-cols-[.82fr_1.18fr] lg:items-center">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-80px' }}
+        >
+          <p className="mb-5 text-[10px] font-bold uppercase tracking-[0.2em] text-[#e73f1b]">Design sob demanda para agências</p>
+          <h2 className="font-display text-[clamp(2.8rem,5.5vw,5.6rem)] font-medium leading-[0.95] tracking-[-0.065em]">
+            Seu time de design.<br /><span className="text-black/35">Sem novas contratações.</span>
+          </h2>
+          <p className="mt-7 max-w-lg text-base leading-relaxed text-black/55 md:text-lg">
+            Em vez de procurar e gerenciar freelancers a cada demanda, sua agência conta com uma empresa séria dentro da operação. Você mantém a estratégia e o cliente; a Fehari assume a produção, inclusive em white-label.
+          </p>
 
-const AgencySupportSection: React.FC = () => {
-  return (
-    <section className="py-24 bg-background border-t border-border overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          
-          {/* Left Column: Copy */}
-          <div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-            >
-              <div className="flex items-center gap-2 mb-6">
-                 <span className="w-2 h-2 rounded-full bg-accent"></span>
-                 <span className="font-mono text-xs font-bold text-text-secondary uppercase tracking-widest">
-                   Para Agências & Criadores
-                 </span>
+          <div className="mt-9 grid gap-4 sm:grid-cols-2">
+            {[
+              { icon: ShieldCheck, title: 'Empresa e processo', copy: 'Continuidade e responsabilidade em cada entrega.' },
+              { icon: Users2, title: 'Escala sem contratar', copy: 'Mais designers quando a demanda apertar.' },
+              { icon: Layers2, title: 'Padrão em cada peça', copy: 'Direção visual que não se perde no volume.' },
+              { icon: CircleDot, title: 'Prioridade visível', copy: 'Todo mundo sabe o que vem agora.' },
+            ].map((item) => (
+              <div key={item.title} className="border-t border-black/15 pt-4">
+                <item.icon className="h-5 w-5 text-[#e73f1b]" />
+                <h3 className="mt-4 text-sm font-semibold">{item.title}</h3>
+                <p className="mt-1 text-xs leading-relaxed text-black/45">{item.copy}</p>
               </div>
-              
-              <h2 className="font-display font-bold text-4xl md:text-5xl text-text leading-tight mb-6">
-                Sua agência vende estratégia. <br />
-                <span className="text-gray-400">Nós entregamos a produção.</span>
-              </h2>
-              
-              <p className="text-lg text-text-secondary leading-relaxed mb-8">
-                Cansado de recusar clientes ou enlouquecer gerenciando freelancers para entregar posts? A Fehari atua como sua linha de produção de design invisível.
-              </p>
-
-              <ul className="space-y-4 mb-10">
-                {features.map((feature, i) => (
-                  <motion.li 
-                    key={i}
-                    initial={{ opacity: 0, x: -10 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: i * 0.1 }}
-                    className="flex items-center gap-3 text-text"
-                  >
-                    <CheckCircle2 className="w-5 h-5 text-accent flex-shrink-0" />
-                    <span className="font-medium">{feature}</span>
-                  </motion.li>
-                ))}
-              </ul>
-
-              <Button className="bg-text text-white hover:bg-accent rounded-full px-8">
-                Ver Planos para Agências
-                <ArrowRight className="ml-2 w-4 h-4" />
-              </Button>
-            </motion.div>
+            ))}
           </div>
 
-          {/* Right Column: Visual Showcase */}
-          <div className="relative">
-            {/* Background decorative blob */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] h-[140%] bg-gradient-to-tr from-accent/5 via-transparent to-transparent rounded-full blur-3xl pointer-events-none" />
+          <Button
+            href="https://wa.me/5564999602571?text=Oi%2C%20quero%20uma%20retaguarda%20criativa%20para%20minha%20opera%C3%A7%C3%A3o."
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-10 gap-3 bg-[#111] text-white shadow-none hover:bg-[#e73f1b]"
+          >
+            Quero uma retaguarda criativa <ArrowRight className="h-4 w-4" />
+          </Button>
+        </motion.div>
 
-            <div className="grid grid-cols-2 gap-4 relative z-10">
-              {/* Column 1 (Offset down) */}
-              <div className="space-y-4 pt-12">
-                <motion.div 
-                  initial={{ opacity: 0, y: 40 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6 }}
-                  className="bg-white border border-border p-4 rounded-xl shadow-lg"
-                >
-                  <div className="aspect-[4/5] bg-gray-100 rounded-lg mb-4 flex items-center justify-center relative overflow-hidden group">
-                     {/* Mockup Element */}
-                     <div className="absolute inset-x-4 top-4 bottom-12 bg-white shadow-sm rounded border border-gray-200" />
-                     <div className="absolute inset-x-6 top-6 bottom-16 bg-gray-50 rounded border border-gray-100" />
-                     <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-1">
-                        <div className="w-1.5 h-1.5 rounded-full bg-accent"></div>
-                        <div className="w-1.5 h-1.5 rounded-full bg-gray-300"></div>
-                        <div className="w-1.5 h-1.5 rounded-full bg-gray-300"></div>
-                     </div>
-                     <Layers className="w-8 h-8 text-text/20 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
-                  </div>
-                  <p className="font-display font-bold text-text text-sm">Carrosséis Infinitos</p>
-                  <p className="text-xs text-text-secondary">Conteúdo denso visualizado.</p>
-                </motion.div>
-
-                <motion.div 
-                   initial={{ opacity: 0, y: 40 }}
-                   whileInView={{ opacity: 1, y: 0 }}
-                   viewport={{ once: true }}
-                   transition={{ duration: 0.6, delay: 0.2 }}
-                   className="bg-[#111] text-white p-4 rounded-xl shadow-2xl"
-                >
-                   <div className="flex items-center justify-between mb-4">
-                      <div className="flex items-center gap-2">
-                        <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse"></div>
-                        <span className="text-[10px] font-mono uppercase">Motion</span>
-                      </div>
-                      <Video className="w-4 h-4 text-gray-500" />
-                   </div>
-                   <div className="space-y-2">
-                      <div className="h-2 w-3/4 bg-gray-700 rounded-full"></div>
-                      <div className="h-2 w-1/2 bg-gray-700 rounded-full"></div>
-                   </div>
-                   <div className="mt-8 pt-4 border-t border-gray-800">
-                      <p className="font-display font-bold text-sm">Reels & TikToks</p>
-                   </div>
-                </motion.div>
+        <motion.div
+          initial={{ opacity: 0, x: 40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 0.8 }}
+          className="relative"
+        >
+          <div className="absolute -inset-8 rounded-full bg-[#ff4a1c]/10 blur-[80px]" />
+          <div className="relative overflow-hidden rounded-[2rem] border border-black/10 bg-[#111] p-4 shadow-[0_40px_100px_rgba(0,0,0,.2)] md:p-6">
+            <div className="flex items-center justify-between border-b border-white/10 pb-5">
+              <div>
+                <p className="text-[9px] font-semibold uppercase tracking-[0.2em] text-[#ff6035]">Workspace compartilhado</p>
+                <h3 className="mt-2 font-display text-xl font-medium tracking-[-0.03em] text-white">Operação criativa / esta semana</h3>
               </div>
-
-              {/* Column 2 */}
-              <div className="space-y-4">
-                 <motion.div 
-                  initial={{ opacity: 0, y: 40 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.1 }}
-                  className="bg-white border border-border p-4 rounded-xl shadow-lg"
-                >
-                  <div className="aspect-square bg-accent/5 rounded-lg mb-4 flex items-center justify-center border border-accent/10">
-                     <ImageIcon className="w-8 h-8 text-accent" />
-                  </div>
-                  <p className="font-display font-bold text-text text-sm">Social Posts</p>
-                  <p className="text-xs text-text-secondary">Estáticos e Stories diários.</p>
-                </motion.div>
-
-                <motion.div 
-                  initial={{ opacity: 0, y: 40 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.3 }}
-                  className="bg-background-secondary border border-border p-6 rounded-xl flex flex-col items-center text-center justify-center min-h-[180px]"
-                >
-                   <h4 className="font-display font-bold text-4xl text-accent mb-2">+250</h4>
-                   <p className="text-xs font-medium text-text uppercase tracking-wide">Templates Criados</p>
-                   <p className="text-[10px] text-text-secondary mt-2">Neste mês para clientes.</p>
-                </motion.div>
+              <div className="flex -space-x-2">
+                {['F', 'D', 'M'].map((item) => <span key={item} className="grid h-8 w-8 place-items-center rounded-full border-2 border-[#111] bg-[#2a2a2a] text-[9px] text-white/65">{item}</span>)}
               </div>
             </div>
 
-            {/* Floating Connection Line */}
-            <svg className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full pointer-events-none opacity-20 hidden md:block" viewBox="0 0 400 400">
-              <path d="M 100 100 Q 200 50 300 100 T 400 200" fill="none" stroke="currentColor" strokeWidth="2" strokeDasharray="4 4" />
-            </svg>
-          </div>
+            <div className="mt-5 space-y-3">
+              {output.map((item, index) => (
+                <motion.div
+                  key={item.label}
+                  initial={{ opacity: 0, y: 15 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.25 + index * 0.12 }}
+                  className="rounded-2xl border border-white/10 bg-white/[0.035] p-4 md:p-5"
+                >
+                  <div className="flex items-start justify-between gap-4">
+                    <div>
+                      <span className="text-[9px] font-semibold uppercase tracking-[0.16em] text-white/30">TASK 0{index + 1}</span>
+                      <p className="mt-2 text-sm font-medium text-white/85">{item.label}</p>
+                    </div>
+                    <span className={`rounded-full px-2.5 py-1 text-[9px] ${index === 0 ? 'bg-[#ff4a1c]/15 text-[#ff754f]' : 'bg-white/[0.06] text-white/40'}`}>
+                      {item.status}
+                    </span>
+                  </div>
+                  <div className="mt-5 h-1 overflow-hidden rounded-full bg-white/[0.06]">
+                    <motion.div
+                      initial={{ width: 0 }}
+                      whileInView={{ width: `${item.progress}%` }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 1, delay: 0.25 + index * 0.12 }}
+                      className="h-full rounded-full bg-gradient-to-r from-[#e73114] to-[#ff7a00]"
+                    />
+                  </div>
+                </motion.div>
+              ))}
+            </div>
 
-        </div>
+            <div className="mt-4 grid grid-cols-2 gap-3">
+              <div className="rounded-2xl border border-white/10 bg-white/[0.025] p-4 text-white">
+                <Check className="h-4 w-4 text-[#ff6035]" />
+                <p className="mt-7 text-2xl font-medium tracking-[-0.04em]">Tudo no lugar.</p>
+                <p className="mt-1 text-[10px] text-white/35">Sem caçar arquivo ou feedback.</p>
+              </div>
+              <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#ff6a00] to-[#e42f15] p-4 text-white">
+                <div className="absolute -right-6 -top-6 h-28 w-28 rounded-full border border-white/25" />
+                <p className="relative mt-12 text-2xl font-medium tracking-[-0.04em]">Pronto para<br />o próximo.</p>
+              </div>
+            </div>
+          </div>
+        </motion.div>
       </div>
-    </section>
-  );
-};
+    </div>
+  </section>
+);
 
 export default AgencySupportSection;

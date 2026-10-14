@@ -1,153 +1,110 @@
 import React, { useState } from 'react';
-import { motion, useScroll, useMotionValueEvent, AnimatePresence } from 'framer-motion';
+import { AnimatePresence, motion, useMotionValueEvent, useScroll } from 'framer-motion';
+import { ArrowUpRight, Menu, X } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
 import Button from './ui/Button';
-import { ArrowRight, ChevronDown, Menu } from 'lucide-react';
 
-import { Link } from 'react-router-dom';
+const navItems = [
+  { label: 'Para quem', href: '/#para-quem' },
+  { label: 'Soluções', href: '/#solucoes' },
+  { label: 'Cases', href: '/#cases' },
+  { label: 'Sobre', href: '/#sobre' },
+  { label: 'Como funciona', href: '/#processo' },
+];
 
 const Navbar: React.FC = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
   const { scrollY } = useScroll();
+  const location = useLocation();
 
-  useMotionValueEvent(scrollY, "change", (latest) => {
-    setIsScrolled(latest > 50);
-  });
-
-  const textColor = isScrolled ? "text-text hover:text-accent" : "text-white hover:text-gray-300";
-  const iconColor = isScrolled ? "text-text-secondary group-hover:text-accent" : "text-gray-300 group-hover:text-white";
-  const loginColor = isScrolled ? "text-text-secondary hover:text-text" : "text-gray-300 hover:text-white";
+  useMotionValueEvent(scrollY, 'change', (value) => setScrolled(value > 24));
 
   return (
     <>
-      <div className="fixed top-0 left-0 right-0 z-50 pointer-events-none flex justify-center pt-4 md:pt-6 px-4">
+      <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4 md:px-6">
         <motion.nav
-        className={`pointer-events-auto transition-all duration-500 w-full max-w-6xl flex items-center justify-between ${
-          isScrolled
-            ? 'bg-background/70 backdrop-blur-2xl border border-border/50 shadow-[0_8px_30px_rgb(0,0,0,0.08)] rounded-[2.5rem] py-3 px-6 md:px-8'
-            : 'bg-transparent border border-transparent py-4 px-4 md:px-8 rounded-[2.5rem]'
-        }`}
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-      >
+          initial={{ y: -30, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          className={`mx-auto flex max-w-[1380px] items-center justify-between rounded-full border px-4 py-3 transition-all duration-500 md:px-5 ${
+            scrolled
+              ? 'border-white/10 bg-[#080808]/80 shadow-[0_16px_60px_rgba(0,0,0,0.45)] backdrop-blur-2xl'
+              : 'border-white/[0.08] bg-black/30 backdrop-blur-lg'
+          }`}
+        >
+          <Link to="/" className="flex items-center gap-3" aria-label="Fehari Studio — início">
+            <img src="/fehari.svg" alt="Fehari Studio" className="h-7 w-auto" />
+            <span className="hidden text-sm font-semibold tracking-[-0.02em] text-white sm:block">Fehari Studio</span>
+          </Link>
 
-          {/* Left Navigation (Desktop) */}
-          <div className="hidden md:flex flex-1 items-center justify-start gap-8">
-            <div className={`group flex items-center gap-1 cursor-pointer text-sm font-medium transition-colors ${textColor}`}>
-              Soluções
-              <ChevronDown className={`w-3 h-3 transition-transform group-hover:rotate-180 ${iconColor}`} />
-            </div>
-            <a href="#" className={`text-sm font-medium transition-colors ${textColor}`}>
-              Processo
-            </a>
-            <Link to="/portfolio" className={`group flex items-center gap-1 cursor-pointer text-sm font-medium transition-colors ${textColor}`}>
-              Portfolio
-            </Link>
+          <div className="hidden items-center gap-7 lg:flex">
+            {navItems.map((item) => (
+              <a key={item.label} href={item.href} className="text-[13px] font-medium text-white/60 transition-colors hover:text-white">
+                {item.label}
+              </a>
+            ))}
+            {location.pathname !== '/' && (
+              <Link to="/portfolio" className="text-[13px] font-medium text-white/60 transition-colors hover:text-white">
+                Portfólio
+              </Link>
+            )}
           </div>
 
-          {/* Logo (Center) */}
-          <div className="flex-shrink-0 flex items-center justify-center">
-            <Link to="/">
-              <img className={`w-40 hover:cursor-pointer hover:scale-105 transition-all duration-300 ${!isScrolled ? 'invert brightness-0' : ''}`} src="/logo-fehari-black.svg" alt="Fehari Studio Logo" />
-            </Link>
-          </div>
-
-          {/* Right Navigation & CTA (Desktop) */}
-          <div className="hidden md:flex flex-1 items-center justify-end gap-8">
-            <a href="#planos" className={`text-sm font-medium transition-colors ${textColor}`}>
-              Planos
-            </a>
-            <a href="#" className={`text-sm font-medium transition-colors ${loginColor}`}>
-              Login
-            </a>
-            <a href="https://wa.me/5564999602571" target="_blank" rel="noopener noreferrer">
-              <Button variant="primary" size="sm" className="gap-2 rounded-[80px] px-10 py-5">
-                Comece Agora
-                <ArrowRight className="w-3 h-3" />
-              </Button>
-            </a>
-          </div>
-
-          {/* Mobile Menu Toggle (Visible only on mobile) */}
-          {/* Mobile Menu Toggle (Visible only on mobile) */}
-          <div className="md:hidden flex flex-1 justify-end">
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className={`p-2 hover:bg-background-secondary rounded-md z-50 relative ${!isScrolled ? 'text-white hover:text-text' : 'text-text'}`}
+          <div className="hidden md:block">
+            <Button
+              href="https://wa.me/5564999602571?text=Oi%2C%20quero%20entender%20como%20a%20Fehari%20pode%20ajudar%20meu%20time."
+              target="_blank"
+              rel="noopener noreferrer"
+              size="sm"
+              className="gap-2"
             >
-              <Menu className="w-6 h-6" />
-            </button>
+              Falar com a Fehari <ArrowUpRight className="h-4 w-4" />
+            </Button>
           </div>
 
-      </motion.nav>
-    </div>
+          <button
+            type="button"
+            onClick={() => setOpen((value) => !value)}
+            className="grid h-10 w-10 place-items-center rounded-full border border-white/10 text-white md:hidden"
+            aria-label={open ? 'Fechar menu' : 'Abrir menu'}
+            aria-expanded={open}
+          >
+            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
+        </motion.nav>
+      </header>
 
-      {/* Mobile Full Screen Menu */}
       <AnimatePresence>
-        {isMenuOpen && (
+        {open && (
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 bg-background z-40 flex flex-col pt-24 px-6 md:hidden"
+            className="fixed inset-0 z-40 flex flex-col bg-[#070707] px-6 pb-8 pt-28 md:hidden"
           >
-            <div className="flex flex-col gap-6 text-center">
-              <Link
-                to="/"
-                onClick={() => setIsMenuOpen(false)}
-                className="text-2xl font-medium text-text hover:text-accent transition-colors"
-              >
-                Home
-              </Link>
-              <a
-                href="#solucoes"
-                onClick={() => setIsMenuOpen(false)}
-                className="text-2xl font-medium text-text hover:text-accent transition-colors"
-              >
-                Soluções
-              </a>
-              <a
-                href="#processo"
-                onClick={() => setIsMenuOpen(false)}
-                className="text-2xl font-medium text-text hover:text-accent transition-colors"
-              >
-                Processo
-              </a>
-              <Link
-                to="/portfolio"
-                onClick={() => setIsMenuOpen(false)}
-                className="text-2xl font-medium text-text hover:text-accent transition-colors"
-              >
-                Portfolio
-              </Link>
-              <a
-                href="#planos"
-                onClick={() => setIsMenuOpen(false)}
-                className="text-2xl font-medium text-text hover:text-accent transition-colors"
-              >
-                Planos
-              </a>
-              <a
-                href="#"
-                onClick={() => setIsMenuOpen(false)}
-                className="text-2xl font-medium text-text-secondary hover:text-text transition-colors"
-              >
-                Login
-              </a>
-              <a
-                href="https://wa.me/5564999602571"
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => setIsMenuOpen(false)}
-                className="mt-4"
-              >
-                <Button variant="primary" size="lg" className="w-full justify-center">
-                  Comece Agora
-                  <ArrowRight className="ml-2 w-4 h-4" />
-                </Button>
-              </a>
+            <div className="flex flex-1 flex-col justify-center gap-2">
+              {navItems.map((item, index) => (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  onClick={() => setOpen(false)}
+                  className="flex items-center justify-between border-b border-white/10 py-5 text-3xl font-medium tracking-[-0.04em] text-white"
+                >
+                  <span><span className="mr-4 text-xs text-accent">0{index + 1}</span>{item.label}</span>
+                  <ArrowUpRight className="h-5 w-5 text-white/30" />
+                </a>
+              ))}
             </div>
+            <Button
+              href="https://wa.me/5564999602571?text=Oi%2C%20quero%20entender%20como%20a%20Fehari%20pode%20ajudar%20meu%20time."
+              target="_blank"
+              rel="noopener noreferrer"
+              size="lg"
+              className="w-full gap-2"
+            >
+              Começar uma conversa <ArrowUpRight className="h-4 w-4" />
+            </Button>
           </motion.div>
         )}
       </AnimatePresence>

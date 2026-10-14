@@ -12,11 +12,11 @@ interface SEOProps {
 const SEO: React.FC<SEOProps> = ({
     title = "Fehari | Braço Criativo Sob Demanda",
     description = "Design e tecnologia sob demanda. Construímos interfaces, marcas e experiências digitais para o futuro.",
-    url = "https://fehari.com",
-    image = "/og-image.jpg",
+    url = "https://www.feharistudio.com.br",
+    image = "/logo4D_fehari.png",
     type = "website"
 }) => {
-    const siteTitle = title === "Fehari | Braço Criativo Sob Demanda" ? title : `${title} | Fehari`;
+    const siteTitle = title;
 
     return (
         <Helmet>

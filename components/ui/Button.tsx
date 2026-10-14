@@ -19,18 +19,18 @@ const Button: React.FC<ButtonProps> = ({
   href,
   ...props
 }) => {
-  const baseStyles = "inline-flex items-center justify-center font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none rounded-md";
+  const baseStyles = "group inline-flex items-center justify-center font-semibold tracking-[-0.01em] transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-black disabled:opacity-50 disabled:pointer-events-none rounded-full";
 
   const variants = {
-    primary: "bg-text text-white hover:bg-black hover:scale-[1.02] active:scale-[0.98]",
-    secondary: "bg-background border border-border text-text hover:border-text-secondary hover:bg-background-secondary",
-    outline: "bg-transparent border border-text text-text hover:bg-text hover:text-white"
+    primary: "bg-accent text-white shadow-[0_12px_50px_rgba(255,61,20,0.25)] hover:bg-[#ff5a2b] hover:shadow-[0_16px_60px_rgba(255,61,20,0.38)] hover:-translate-y-0.5 active:translate-y-0",
+    secondary: "bg-white/[0.06] border border-white/10 text-white hover:border-white/25 hover:bg-white/[0.1]",
+    outline: "bg-transparent border border-white/20 text-white hover:border-accent/70 hover:bg-accent/10"
   };
 
   const sizes = {
-    sm: "h-9 px-4 text-sm",
-    md: "h-11 px-6 text-base",
-    lg: "h-14 px-8 text-lg"
+    sm: "h-10 px-5 text-sm",
+    md: "h-12 px-7 text-sm",
+    lg: "h-14 px-8 text-base"
   };
 
   if (href) {

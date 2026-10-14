@@ -7,18 +7,14 @@ import TermosHeroHospedagemPage from './pages/TermosHeroHospedagemPage';
 import SucessoPage from './pages/SucessoPage';
 import AdminPage from './pages/AdminPage';
 import BioPage from './pages/BioPage';
-import StickyPartnerBar from './components/StickyPartnerBar';
 import Navbar from './components/Navbar';
 import { Outlet } from 'react-router-dom';
 
 const MainLayout = () => (
   <>
     <Navbar />
-    <div className="min-h-screen bg-background text-text font-sans">
-      <StickyPartnerBar />
-      <div className="max-w-7xl mx-auto border-l border-r border-border relative bg-background shadow-sm min-h-screen">
-        <Outlet />
-      </div>
+    <div className="min-h-screen bg-background text-text font-sans overflow-clip">
+      <Outlet />
     </div>
   </>
 );
