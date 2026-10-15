@@ -27,10 +27,10 @@ const Navbar: React.FC = () => {
           initial={{ y: -30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-          className={`mx-auto flex max-w-[1380px] items-center justify-between rounded-full border px-4 py-3 transition-all duration-500 md:px-5 ${
+          className={`mx-auto flex max-w-[1380px] items-center justify-between rounded-full px-4 py-3 transition-all duration-500 md:px-5 ${
             scrolled
-              ? 'border-white/10 bg-[#080808]/80 shadow-[0_16px_60px_rgba(0,0,0,0.45)] backdrop-blur-2xl'
-              : 'border-white/[0.08] bg-black/30 backdrop-blur-lg'
+              ? 'bg-[#080808]/88 shadow-[0_16px_60px_rgba(0,0,0,0.48)] backdrop-blur-2xl'
+              : 'bg-black/35 backdrop-blur-lg'
           }`}
         >
           <Link to="/" className="flex items-center gap-3" aria-label="Fehari Studio — início">
@@ -66,7 +66,7 @@ const Navbar: React.FC = () => {
           <button
             type="button"
             onClick={() => setOpen((value) => !value)}
-            className="grid h-10 w-10 place-items-center rounded-full border border-white/10 text-white md:hidden"
+            className="grid h-10 w-10 place-items-center rounded-full bg-white/[0.07] text-white md:hidden"
             aria-label={open ? 'Fechar menu' : 'Abrir menu'}
             aria-expanded={open}
           >

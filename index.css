@@ -58,9 +58,8 @@ summary {
 }
 
 .glass-panel {
-  border: 1px solid rgba(255,255,255,.12);
-  background: linear-gradient(135deg, rgba(255,255,255,.085), rgba(255,255,255,.025));
-  box-shadow: 0 24px 70px rgba(0,0,0,.36), inset 0 1px 0 rgba(255,255,255,.08);
+  background: linear-gradient(135deg, rgba(22,22,22,.92), rgba(10,10,10,.72));
+  box-shadow: 0 24px 70px rgba(0,0,0,.46), inset 3px 0 0 rgba(255,70,31,.72);
   backdrop-filter: blur(18px);
 }
 
@@ -115,9 +114,7 @@ summary {
 }
 
 .founder-portrait {
-  filter: drop-shadow(0 34px 80px rgba(0,0,0,.72));
-  -webkit-mask-image: radial-gradient(ellipse 72% 92% at 50% 43%, #000 55%, rgba(0,0,0,.94) 67%, transparent 100%);
-  mask-image: radial-gradient(ellipse 72% 92% at 50% 43%, #000 55%, rgba(0,0,0,.94) 67%, transparent 100%);
+  filter: none;
 }
 
 .faq-item summary::-webkit-details-marker {

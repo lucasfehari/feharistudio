@@ -56,12 +56,12 @@ const DifferenceSection: React.FC = () => (
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-70px' }}
             transition={{ delay: index * 0.1, duration: 0.7 }}
-            className="group relative flex min-h-[760px] scroll-mt-28 flex-col overflow-hidden rounded-[2rem] border border-white/10 bg-[#0c0c0c]"
+            className={`group relative flex min-h-[760px] scroll-mt-28 flex-col overflow-hidden rounded-[2rem] shadow-[0_30px_90px_rgba(0,0,0,.2)] ${index === 0 ? 'bg-[#101010]' : 'bg-[#0d0d0d]'}`}
           >
             <div className="relative h-[300px] overflow-hidden md:h-[350px]">
               <img src={solution.image} alt={solution.eyebrow} className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.025]" />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0c0c0c] via-transparent to-black/10" />
-              <div className="absolute left-5 top-5 flex items-center gap-2 rounded-full border border-white/15 bg-black/45 px-3 py-2 text-[9px] font-semibold uppercase tracking-[0.16em] text-white/70 backdrop-blur-xl">
+              <div className="absolute left-5 top-5 flex items-center gap-2 rounded-full bg-black/55 px-3 py-2 text-[9px] font-semibold uppercase tracking-[0.16em] text-white/70 backdrop-blur-xl">
                 <solution.icon className="h-3.5 w-3.5 text-accent" /> {solution.index}
               </div>
             </div>
@@ -69,7 +69,7 @@ const DifferenceSection: React.FC = () => (
             <div className="flex flex-1 flex-col p-6 md:p-9">
               <p className="text-[9px] font-bold uppercase tracking-[0.18em] text-accent">{solution.eyebrow}</p>
               <h3 className="mt-5 max-w-xl font-display text-3xl font-medium leading-[1.02] tracking-[-0.05em] md:text-4xl">{solution.title}</h3>
-              <p className="mt-5 max-w-xl text-sm leading-relaxed text-white/48 md:text-base">{solution.copy}</p>
+              <p className="mt-5 max-w-xl text-sm leading-relaxed text-white/58 md:text-base">{solution.copy}</p>
 
               <div className="mt-8 grid gap-3 sm:grid-cols-2">
                 {solution.points.map((point) => (
@@ -80,9 +80,9 @@ const DifferenceSection: React.FC = () => (
                 ))}
               </div>
 
-              <a href={solution.link} className="mt-auto flex items-center justify-between border-t border-white/10 pt-7 text-sm font-medium text-white/70 transition-colors hover:text-white">
+              <a href={solution.link} className="mt-auto flex items-center justify-between border-t border-white/10 pt-7 text-sm font-semibold text-white/80 transition-colors hover:text-accent">
                 {solution.linkLabel}
-                <span className="grid h-10 w-10 place-items-center rounded-full border border-white/10 transition-all group-hover:border-accent/50 group-hover:text-accent">
+                <span className="grid h-10 w-10 place-items-center rounded-full bg-white/[0.06] transition-all group-hover:bg-accent group-hover:text-white">
                   <ArrowDownRight className="h-4 w-4" />
                 </span>
               </a>
@@ -95,16 +95,16 @@ const DifferenceSection: React.FC = () => (
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
-        className="mt-6 flex flex-col gap-5 rounded-3xl border border-accent/20 bg-[linear-gradient(110deg,rgba(255,70,31,.12),rgba(255,255,255,.02))] p-6 md:flex-row md:items-center md:justify-between md:px-8"
+        className="mt-6 flex flex-col gap-5 rounded-3xl bg-accent p-6 shadow-[0_24px_70px_rgba(255,70,31,.16)] md:flex-row md:items-center md:justify-between md:px-8"
       >
         <div className="flex items-center gap-4">
-          <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-accent text-white"><ShieldCheck className="h-5 w-5" /></span>
+          <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-black/15 text-white"><ShieldCheck className="h-5 w-5" /></span>
           <div>
             <p className="font-display text-lg font-medium tracking-[-0.03em]">Não é um freelancer solto. É uma empresa cuidando da sua operação.</p>
-            <p className="mt-1 text-xs text-white/40">Processo, direção, continuidade e responsabilidade em cada entrega.</p>
+            <p className="mt-1 text-xs text-white/70">Processo, direção, continuidade e responsabilidade em cada entrega.</p>
           </div>
         </div>
-        <span className="whitespace-nowrap rounded-full border border-white/10 px-4 py-2 text-[9px] font-semibold uppercase tracking-[0.16em] text-white/45">Fehari Studio · Creative Partner</span>
+        <span className="whitespace-nowrap text-[9px] font-bold uppercase tracking-[0.2em] text-white/70">Fehari Studio · Creative Partner</span>
       </motion.div>
     </div>
   </section>

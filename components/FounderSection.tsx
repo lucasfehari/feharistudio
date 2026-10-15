@@ -10,7 +10,7 @@ const FounderSection: React.FC = () => (
         initial={{ opacity: 0, y: 28 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '-80px' }}
-        className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-[#090909]"
+        className="relative overflow-hidden rounded-[2rem] bg-[#090909] shadow-[0_34px_110px_rgba(0,0,0,.24)]"
       >
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_52%_78%,rgba(255,70,31,.24),transparent_30%),radial-gradient(circle_at_78%_12%,rgba(255,255,255,.055),transparent_24%)]" />
         <div className="absolute inset-0 opacity-35 [background-image:linear-gradient(rgba(255,255,255,.028)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.028)_1px,transparent_1px)] [background-size:72px_72px]" />
@@ -39,16 +39,13 @@ const FounderSection: React.FC = () => (
             </p>
           </div>
 
-          <div className="pointer-events-none relative z-10 -mx-6 -mt-10 h-[530px] md:-mx-10 md:h-[650px] lg:absolute lg:bottom-0 lg:left-[27%] lg:mx-0 lg:h-[740px] lg:w-[53%]">
-            <div className="absolute bottom-[16%] left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-accent/25 blur-[100px] lg:h-96 lg:w-96" />
+          <div className="pointer-events-none relative -mx-6 -mt-10 h-[530px] md:-mx-10 md:h-[650px] lg:contents">
             <img
-              src="/lucas-fehari-cutout.png"
+              src="/lucas-fehari-cutout-clean.png"
               alt="Lucas Fehari, diretor de criação da Fehari Studio"
-              className="founder-portrait absolute bottom-0 left-1/2 h-full w-auto max-w-none -translate-x-1/2 object-contain object-bottom"
+              className="founder-portrait absolute left-1/2 top-12 z-10 h-[680px] w-auto max-w-none -translate-x-1/2 object-contain md:top-16 md:h-[820px] lg:left-[53%] lg:top-[100px] lg:h-[900px]"
             />
-            <div className="absolute inset-y-0 left-0 w-[20%] bg-gradient-to-r from-[#090909] to-transparent" />
-            <div className="absolute inset-y-0 right-0 w-[20%] bg-gradient-to-l from-[#090909] to-transparent" />
-            <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#090909] via-[#090909]/70 to-transparent" />
+            <div className="absolute inset-x-0 bottom-0 z-20 h-40 bg-gradient-to-t from-[#090909] via-[#090909]/85 to-transparent md:h-44 lg:left-[27%] lg:right-[20%] lg:h-40" />
           </div>
 
           <div className="relative z-30 -mt-16 ml-auto border-l border-accent/55 bg-gradient-to-r from-[#090909]/95 via-[#090909]/85 to-transparent py-2 pl-6 backdrop-blur-[2px] md:max-w-[430px] lg:absolute lg:bottom-[62px] lg:right-12 lg:mt-0 lg:w-[360px] lg:pl-8">

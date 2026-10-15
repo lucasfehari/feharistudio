@@ -19,13 +19,10 @@ const HeroSection: React.FC = () => {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.65 }}
-            className="mb-7 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3 py-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/65"
+            className="mb-7 inline-flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.22em] text-white/55"
           >
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
-            </span>
-            Duas soluções · Um time sério
+            <span className="h-px w-10 bg-accent" />
+            Estratégia para vender · Design para ser lembrado
           </motion.div>
 
           <motion.h1
@@ -58,10 +55,10 @@ const HeroSection: React.FC = () => {
               size="lg"
               className="gap-3"
             >
-              Sou agência <ArrowDown className="h-4 w-4" />
+              Quero escalar minha agência <ArrowDown className="h-4 w-4" />
             </Button>
             <Button href="#para-empresas" variant="secondary" size="lg" className="gap-3">
-              Tenho uma empresa <ArrowDown className="h-4 w-4" />
+              Quero captar para minha empresa <ArrowDown className="h-4 w-4" />
             </Button>
           </motion.div>
 
@@ -71,7 +68,7 @@ const HeroSection: React.FC = () => {
             transition={{ delay: 0.65 }}
             className="mt-12 flex flex-wrap items-center gap-x-6 gap-y-3 text-xs text-white/35"
           >
-            <span className="flex items-center gap-2"><Sparkles className="h-3.5 w-3.5 text-accent" /> Empresa, não freelancer</span>
+            <span className="flex items-center gap-2"><Sparkles className="h-3.5 w-3.5 text-accent" /> Direção criativa em cada entrega</span>
             <span className="h-1 w-1 rounded-full bg-white/20" />
             <span>Investimento acessível</span>
             <span className="h-1 w-1 rounded-full bg-white/20" />
@@ -80,8 +77,7 @@ const HeroSection: React.FC = () => {
         </div>
 
         <div className="relative min-h-[470px] lg:min-h-[700px]">
-          <div className="absolute inset-0 m-auto h-[82%] w-[82%] rounded-full border border-accent/15 shadow-[inset_0_0_100px_rgba(255,75,20,0.04)]" />
-          <div className="absolute inset-0 m-auto h-[62%] w-[62%] animate-[spin_28s_linear_infinite] rounded-full border border-dashed border-white/10" />
+          <div className="absolute inset-0 m-auto h-[75%] w-[75%] rounded-full bg-[radial-gradient(circle,rgba(255,70,31,.13),transparent_67%)] blur-xl" />
           <motion.div style={{ y: objectY, rotate: objectRotate }} className="absolute inset-[-4%] z-10 flex items-center justify-center">
             <img
               src="/fehari-creative-core.png"
@@ -113,12 +109,12 @@ const HeroSection: React.FC = () => {
         </div>
       </div>
 
-      <div className="relative z-20 border-y border-white/[0.08] bg-black/30 backdrop-blur-md">
-        <div className="mx-auto flex max-w-[1380px] flex-wrap items-center justify-between gap-5 px-6 py-5 text-[10px] font-semibold uppercase tracking-[0.18em] text-white/38 md:px-10">
-          <span>Duas frentes. Uma só parceria.</span>
-          <div className="flex flex-wrap gap-x-6 gap-y-3 text-white/65 md:gap-x-10">
-            <span>Design sob demanda</span><span>Marketing e captação</span><span>B2B & B2C</span><span>Sites & sistemas</span>
-          </div>
+      <div className="relative z-20 bg-[#0b0b0b]/95 backdrop-blur-md">
+        <div className="mx-auto grid max-w-[1380px] grid-cols-2 gap-x-6 gap-y-6 px-6 py-7 text-[9px] font-semibold uppercase tracking-[0.16em] text-white/42 md:grid-cols-4 md:px-10">
+          <div><strong className="mb-1 block font-display text-xl font-medium tracking-[-0.04em] text-white">10 anos</strong>de experiência digital</div>
+          <div><strong className="mb-1 block font-display text-xl font-medium tracking-[-0.04em] text-white">White-label</strong>para agências</div>
+          <div><strong className="mb-1 block font-display text-xl font-medium tracking-[-0.04em] text-white">B2B + B2C</strong>marketing para empresas</div>
+          <div><strong className="mb-1 block font-display text-xl font-medium tracking-[-0.04em] text-white">Ponta a ponta</strong>marca, campanha e tecnologia</div>
         </div>
       </div>
     </section>

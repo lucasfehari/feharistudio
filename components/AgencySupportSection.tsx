@@ -60,7 +60,7 @@ const AgencySupportSection: React.FC = () => (
           className="relative"
         >
           <div className="absolute -inset-8 rounded-full bg-[#ff4a1c]/10 blur-[80px]" />
-          <div className="relative overflow-hidden rounded-[2rem] border border-black/10 bg-[#111] p-4 shadow-[0_40px_100px_rgba(0,0,0,.2)] md:p-6">
+          <div className="relative overflow-hidden rounded-[2rem] bg-[#111] p-4 shadow-[0_40px_100px_rgba(0,0,0,.22)] md:p-6">
             <div className="flex items-center justify-between border-b border-white/10 pb-5">
               <div>
                 <p className="text-[9px] font-semibold uppercase tracking-[0.2em] text-[#ff6035]">Workspace compartilhado</p>
@@ -79,7 +79,7 @@ const AgencySupportSection: React.FC = () => (
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.25 + index * 0.12 }}
-                  className="rounded-2xl border border-white/10 bg-white/[0.035] p-4 md:p-5"
+                  className="rounded-2xl bg-white/[0.045] p-4 md:p-5"
                 >
                   <div className="flex items-start justify-between gap-4">
                     <div>
@@ -104,13 +104,13 @@ const AgencySupportSection: React.FC = () => (
             </div>
 
             <div className="mt-4 grid grid-cols-2 gap-3">
-              <div className="rounded-2xl border border-white/10 bg-white/[0.025] p-4 text-white">
+              <div className="rounded-2xl bg-white/[0.04] p-4 text-white">
                 <Check className="h-4 w-4 text-[#ff6035]" />
                 <p className="mt-7 text-2xl font-medium tracking-[-0.04em]">Tudo no lugar.</p>
                 <p className="mt-1 text-[10px] text-white/35">Sem caçar arquivo ou feedback.</p>
               </div>
               <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#ff6a00] to-[#e42f15] p-4 text-white">
-                <div className="absolute -right-6 -top-6 h-28 w-28 rounded-full border border-white/25" />
+                <div className="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-white/10 blur-2xl" />
                 <p className="relative mt-12 text-2xl font-medium tracking-[-0.04em]">Pronto para<br />o próximo.</p>
               </div>
             </div>
