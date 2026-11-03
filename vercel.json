@@ -9,6 +9,10 @@
       "destination": "/index.html"
     },
     {
+      "source": "/planos",
+      "destination": "/index.html"
+    },
+    {
       "source": "/termos-hero",
       "destination": "/index.html"
     },

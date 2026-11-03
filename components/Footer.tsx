@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowUpRight, MessageCircle } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Footer: React.FC = () => (
   <footer className="border-t border-white/[0.08] bg-[#050505] pb-8 pt-16 text-white">
@@ -12,8 +13,8 @@ const Footer: React.FC = () => (
             Falar no WhatsApp <ArrowUpRight className="h-3.5 w-3.5" />
           </a>
         </div>
-        <FooterColumn title="Navegue" links={[['Para quem', '/#para-quem'], ['Soluções', '/#solucoes'], ['Cases', '/#cases'], ['Sobre', '/#sobre'], ['Processo', '/#processo']]} />
-        <FooterColumn title="Soluções" links={[['Design para times', '/#solucoes'], ['Marketing', '/#solucoes'], ['Sites avançados', '/#solucoes'], ['Sistemas', '/#solucoes']]} />
+        <FooterColumn title="Navegue" links={[['Para quem', '/#para-quem'], ['Soluções', '/#solucoes'], ['Cases', '/#cases'], ['Planos', '/planos'], ['Sobre', '/#sobre'], ['Processo', '/#processo']]} />
+        <FooterColumn title="Soluções" links={[['Design para times', '/#solucoes'], ['Planos White-Label', '/planos?perfil=agencia'], ['Planos para Empresas', '/planos?perfil=empresa'], ['Projetos Avulsos', '/planos?perfil=avulso'], ['Sites avançados', '/#solucoes']]} />
         <div>
           <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-white/30">Contato</p>
           <div className="mt-6 flex gap-3">
@@ -33,7 +34,22 @@ const FooterColumn = ({ title, links }: { title: string; links: string[][] }) =>
   <div>
     <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-white/30">{title}</p>
     <ul className="mt-6 space-y-3 text-sm text-white/48">
-      {links.map(([label, href]) => <li key={label}><a href={href} className="transition-colors hover:text-white">{label}</a></li>)}
+      {links.map(([label, href]) => {
+        const isInternal = href.startsWith('/') && !href.includes('#');
+        return (
+          <li key={label}>
+            {isInternal ? (
+              <Link to={href} className="transition-colors hover:text-white">
+                {label}
+              </Link>
+            ) : (
+              <a href={href} className="transition-colors hover:text-white">
+                {label}
+              </a>
+            )}
+          </li>
+        );
+      })}
     </ul>
   </div>
 );

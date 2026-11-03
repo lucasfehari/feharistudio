@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import LandingPage from './components/LandingPage';
 import PortfolioPage from './pages/PortfolioPage';
+import PlanosPage from './pages/PlanosPage';
 import HeroHospedagemPage from './pages/HeroHospedagemPage';
 import TermosHeroHospedagemPage from './pages/TermosHeroHospedagemPage';
 import SucessoPage from './pages/SucessoPage';
@@ -25,6 +26,7 @@ const App: React.FC = () => {
       <Routes>
         <Route element={<MainLayout />}>
           <Route path="/" element={<LandingPage />} />
+          <Route path="/planos" element={<PlanosPage />} />
           <Route path="/portfolio" element={<PortfolioPage />} />
         </Route>
         <Route path="/herohospedagem" element={<HeroHospedagemPage />} />

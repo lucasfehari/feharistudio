@@ -1,9 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { SiVercel, SiStripe, SiRaycast, SiLinear, SiShopify, SiAirbnb, SiLoom, SiAmazon } from 'react-icons/si';
+import { SiVercel, SiStripe, SiRaycast, SiLinear, SiShopify, SiAirbnb, SiLoom } from 'react-icons/si';
+import { FaAmazon } from 'react-icons/fa';
 
 const logos = [
-  { name: "Amazon", icon: SiAmazon },
+  { name: "Amazon", icon: FaAmazon },
   { name: "Vercel", icon: SiVercel },
   { name: "Stripe", icon: SiStripe },
   { name: "Raycast", icon: SiRaycast },

@@ -11,6 +11,7 @@ import FAQSection from './FAQSection';
 import SEO from './SEO';
 import Footer from './Footer';
 import FounderSection from './FounderSection';
+import PricingSection from './PricingSection';
 
 const LandingPage: React.FC = () => {
     return (
@@ -28,6 +29,7 @@ const LandingPage: React.FC = () => {
             <PortfolioSection />
             <FounderSection />
             <ProcessSection />
+            <PricingSection />
             <FAQSection />
             <FinalCTASection />
             <Footer />

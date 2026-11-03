@@ -75,10 +75,11 @@ summary {
 
 .section-title {
   font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(2.8rem, 5.2vw, 5.6rem);
+  font-size: clamp(2.2rem, 5vw, 5.4rem);
   font-weight: 500;
-  line-height: .97;
-  letter-spacing: -.065em;
+  line-height: .98;
+  letter-spacing: -.05em;
+  overflow-wrap: break-word;
 }
 
 .section-title span {

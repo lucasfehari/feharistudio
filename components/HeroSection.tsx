@@ -29,7 +29,7 @@ const HeroSection: React.FC = () => {
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.85, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
-            className="max-w-[820px] font-display text-[clamp(3.4rem,7vw,7.6rem)] font-medium leading-[0.91] tracking-[-0.075em]"
+            className="max-w-[820px] font-display text-[clamp(2.5rem,6.5vw,7.2rem)] font-medium leading-[0.93] tracking-[-0.05em] break-words"
           >
             Design sob demanda.<br />
             <span className="hero-gradient-text">Marketing que cresce.</span>
